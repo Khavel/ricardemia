@@ -1,0 +1,57 @@
+Ejercicio 1:
+    Escribir un programa que cree un array de Usuario de tamaño 10 y lo llene con usuarios. Despues, crear un arrayList de Usuario e introducir dentro solamente los usuarios cuyos dni acaben por una letra menor que la L.
+    Finalmente, imprimir por pantalla el arrayList resultante.
+    dni     nombre      apellido
+    1A       Alex        Oceja
+    2B       Gonzalo     Gonzalez
+    3L       Luis        Lopez
+    3L       Laura       Perez
+    4O       Pepe        Perez
+    5X       Roberto     Rodriguez
+    6R       Alex        Vivar
+    7T       Antonio     Aranda
+    8D       Pedro       Jimenez
+    9F       Isabel      Velasco
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ejercicio 2:
+    Usando el arrayList del ejercicio anterior, crear un mapa de Usuario usando ss dni como clave, e introducir en el mapa solamente los usuarios que esten dentro del array inicial de 10 usuarios, pero que no esten en el
+    arrayList creado en el ejercicio anterior.
+
+Ejercicio 3:
+    Crear 5 usuarios y un mapa ordenado de usuarios. Introducir los usuarios creados en el mapa. En el mapa no puede haber mas de un usuario con el mismo nombre.
+        dni     nombre      apellido
+        1A       Alex        Oceja
+        2B       Gonzalo     Gonzalez
+        3L       Laura       Lopez
+        3J       Laura       Perez
+        4O       Pepe        Perez
+
+Ejercicio 4:
+    Crear dos listas de marcas de coche, lista1 y lista2, y despues eliminar de lista1 todas las marcas de coche que no se encuentren en la lista2, de forma que al final ambas queden iguales. Las marcas estan en el fichero
+    marcas1.txt y marcas2.txt

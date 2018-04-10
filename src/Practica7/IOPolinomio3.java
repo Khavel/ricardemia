@@ -33,7 +33,6 @@ public class IOPolinomio3 {
         g.ponColor(Grafica.azul);
         g.ponTitulo("Polinomio");
         double step = (x2-x1)/100;
-        System.out.println(step);
         while(x1<x2){
             g.inserta(x1,p.valor(x1));
             x1 += step;
