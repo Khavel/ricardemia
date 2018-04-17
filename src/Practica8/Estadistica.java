@@ -4,6 +4,8 @@
 
 package Practica8;
 
+import fundamentos.*;
+
 public class Estadistica {
 
     private double[] x;
@@ -39,13 +41,120 @@ public class Estadistica {
         return xAux*yAux;
     }
 
+    public Coeficientes regresionLogaritmica(){
+        double a, b, r;
+        double sumLnX=0;
+        double sumLnXY = 0;
+        double sumLnX2 = 0;
+        double mediaY = 0;
+        double mediaXLn;
+        for (int i=0;i<num;i++){
+            sumLnX += Math.log(x[i]);
+            sumLnXY += Math.log(x[i]) * y[i];
+            sumLnX2 += Math.log(x[i]) * Math.log(x[i]);
+            mediaY += y[i];
+        }
+        mediaY = mediaY/num;
+        mediaXLn = sumLnX/num;
+        a = (sumLnXY-(mediaY*sumLnX))/(sumLnX2-(mediaXLn*sumLnX));
+        b = mediaY - (a * mediaXLn);
+        return new Coeficientes(a,b,0);
+    }
+
     public double media(){
         return funcion()/num;
     }
 
     public void pintaRegresionLineal(){
+        Coeficientes rl=regresionLineal();
+        if (rl==null) {
+            Mensaje m=new Mensaje();
+            m.escribe("Error: no hay suficientes puntos en la regresion");
+        } else {
+            // Calcular el maximo y minimo de las x
+            double xMin=Double.MAX_VALUE;
+            double xMax=-Double.MAX_VALUE;
+            for (int i=0; i<num; i++) {
+                if (x[i]<xMin) {
+                    xMin=x[i];
+                }
+                if (x[i]>xMax) {
+                    xMax=x[i];
+                }
+            }
+
+            // Crear la grafica
+            Grafica graf = new Grafica("Recta de regresion","X","Y");
+            // Valores para la grafica de los puntos
+            graf.ponColor(Grafica.azul);
+            graf.ponSimbolo(true);
+            graf.ponLineas(false);
+            graf.ponTitulo("Puntos");
+            for (int i=0; i<num; i++) {
+                graf.inserta(x[i],rl.coefA()*(Math.log(x[i])+rl.coefB()));
+            }
+            graf.otraGrafica();
+
+            // Pinta la recta de regresion
+            double a=rl.coefA();
+            double b=rl.coefB();
+            graf.ponColor(Grafica.rojo);
+            graf.ponSimbolo(false);
+            graf.ponLineas(true);
+            graf.ponTitulo("Recta");
+            graf.inserta(xMin,a*xMin+b);
+            graf.inserta(xMax,a*xMax+b);
+
+            graf.pinta();
+        }
 
     }
+
+    public void pintaRegresionLogaritmica(){
+        Coeficientes rl=regresionLogaritmica();
+        if (rl==null) {
+            Mensaje m=new Mensaje();
+            m.escribe("Error: no hay suficientes puntos en la regresion");
+        } else {
+            // Calcular el maximo y minimo de las x
+            double xMin=Double.MAX_VALUE;
+            double xMax=-Double.MAX_VALUE;
+            for (int i=0; i<num; i++) {
+                if (x[i]<xMin) {
+                    xMin=x[i];
+                }
+                if (x[i]>xMax) {
+                    xMax=x[i];
+                }
+            }
+
+            // Crear la grafica
+            Grafica graf = new Grafica("Recta de regresion","X","Y");
+            // Valores para la grafica de los puntos
+            graf.ponColor(Grafica.azul);
+            graf.ponSimbolo(true);
+            graf.ponLineas(false);
+            graf.ponTitulo("Puntos");
+            for (int i=0; i<num; i++) {
+                graf.inserta(x[i],y[i]);
+            }
+            graf.otraGrafica();
+
+            // Pinta la recta de regresion
+            double a=rl.coefA();
+            double b=rl.coefB();
+            graf.ponColor(Grafica.rojo);
+            graf.ponSimbolo(false);
+            graf.ponLineas(true);
+            graf.ponTitulo("Recta");
+            graf.inserta(xMin,a*xMin+b);
+            graf.inserta(xMax,a*xMax+b);
+
+            graf.pinta();
+        }
+
+    }
+
 
     public Coeficientes regresionLineal(){
         double sumX=0;

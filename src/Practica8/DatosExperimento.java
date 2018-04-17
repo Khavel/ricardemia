@@ -32,6 +32,8 @@ public class DatosExperimento {
             System.out.println("Coeficiente a: " + coef.coefA());
             System.out.println("Coeficiente b: " + coef.coefB());
             System.out.println("Coeficiente r: " + coef.correlacion());
+            estad.pintaRegresionLineal();
+            estad.pintaRegresionLogaritmica();
             System.exit(0);
         }
 
