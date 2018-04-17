@@ -8,8 +8,8 @@ import fundamentos.Lectura;
 
 public class NewtonRaphson {
     public static void main(String[] args){
-        IOPolinomio3 iopol = new IOPolinomio3();
-        Polinomio3 pol = iopol.lee();
+
+        Polinomio3 pol = IOPolinomio3.lee();
         Lectura l = new Lectura("Datos para raphson");
         l.creaEntrada("x0",15.57);
         l.creaEntrada("Iteraciones",50);
@@ -38,7 +38,7 @@ public class NewtonRaphson {
         double lambda = Math.max(0.1,Math.abs(0.1*raiz));
         double ex1 = raiz - lambda;
         double ex2 = raiz + lambda;
-        iopol.dibuja(ex1,ex2,pol);
+        IOPolinomio3.dibuja(ex1,ex2,pol);
 
         System.exit(0);
     }
