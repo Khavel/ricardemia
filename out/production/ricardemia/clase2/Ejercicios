@@ -1,5 +1,5 @@
 Ejercicio 1:
-    Escribir un programa que cree un array de Usuario de tamaño 10 y lo llene con usuarios. Despues, crear un arrayList de Usuario e introducir dentro solamente los usuarios cuyos dni acaben por una letra menor que la L.
+    Escribir un programa que cree un array de Usuario de tamaño 10 y min llene con usuarios. Despues, crear un arrayList de Usuario e introducir dentro solamente los usuarios cuyos dni acaben por una letra menor que la L.
     Finalmente, imprimir por pantalla el arrayList resultante.
     dni     nombre      apellido
     1A       Alex        Oceja

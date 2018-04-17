@@ -4,6 +4,8 @@
 
 package DataStructures;
 
+import fundamentos.Lectura;
+
 public class Arrays {
 
     public static void main(String []args){
@@ -49,15 +51,22 @@ public class Arrays {
         }
 
         //Calcular la media de los numeros en un array
+        int media = 0;
+        for(int i=0;i<diasMes.length;i++){
+            media += diasMes[i];
+        }
+        media = media / diasMes.length;
+        System.out.println(media);
+
+        //Ejercicio: Calcular el maximo, minimo y la media de un array de enteros. Para ello, crear un array y rellenarlo usando la clase Lectura del paquete fundamentos.
 
 
-        //Ejercicio: Calcular el maximo de un array de enteros
 
 
         //Encontrar un alumno dado su dni
         System.out.println(buscarAlumno("123").getNombre());
 
-
+        System.exit(0);
 
 
 
@@ -65,15 +74,20 @@ public class Arrays {
 
 
     private static Alumno buscarAlumno(String dni){
-
+        Lectura l = new Lectura("Alumnos");
 
         Alumno[] listaAlumnos = new Alumno[4];
-        listaAlumnos[0] = new Alumno("Pedro","123");
-        listaAlumnos[1] = new Alumno("Luis","456");
-        listaAlumnos[2] = new Alumno("Ana","789");
-        listaAlumnos[3] = new Alumno("Helena","123");
+        for(int i=0;i<listaAlumnos.length;i++){
+            l.creaEntrada("nombre" + i,"");
+            l.creaEntrada("dni" + i,"");
+        }
+        l.esperaYCierra();
+        for(int i=0;i<listaAlumnos.length;i++){
+            listaAlumnos[i] = new Alumno(l.leeString("nombre" +i),l.leeString("dni" + i));
+        }
 
         for(Alumno al:listaAlumnos){
+            System.out.println(al.getDni());
             if(al.getDni().equals(dni)){
                 return al;
             }
