@@ -19,7 +19,7 @@ public class Ejercicio1 {
 
         //3
         String s3;
-        s3 = s1.substring(0,2) + s1.substring(4);
+        s3 = s1.substring(0,3) + s1.substring(5);
 
         //4
         boolean var;
@@ -27,9 +27,9 @@ public class Ejercicio1 {
 
         //5
         boolean var2;
-        String s1Aux = s1.substring(0,3);
-        String s2Aux = s2.substring(0,3);
-        var2 = s1Aux.contentEquals(s2Aux);
+        String s1Aux = s1.substring(0,4);
+        String s2Aux = s2.substring(0,4);
+        var2 = s1Aux.equals(s2Aux);
 
         /*
         Ejercicio 2

@@ -12,7 +12,7 @@ public class IOPolinomio3 {
      *
      * @return
      */
-    public Polinomio3 lee(){
+    public static Polinomio3 lee(){
         Lectura l = new Lectura("Datos para el polinomio");
         l.creaEntrada("a",-0.4);
         l.creaEntrada("b",2.7);
@@ -27,7 +27,7 @@ public class IOPolinomio3 {
         return new Polinomio3(a,b,c,d);
     }
 
-    public void dibuja(double x1, double x2, Polinomio3 p){
+    public static void dibuja(double x1, double x2, Polinomio3 p){
         Grafica g = new Grafica("Polinomio","Raiz","Valor");
         g.ponSimbolo(true);
         g.ponColor(Grafica.azul);
@@ -35,7 +35,7 @@ public class IOPolinomio3 {
         double step = (x2-x1)/100;
         while(x1<x2){
             g.inserta(x1,p.valor(x1));
-            x1 += step;
+            x1 += step; //x1 = x1 + step;
         }
         g.pinta();
 
