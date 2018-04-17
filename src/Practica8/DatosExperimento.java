@@ -27,7 +27,13 @@ public class DatosExperimento {
         if(estad.numDatos()<=2){
             System.out.println("Error, muy pocos datos");
         }
-        System.exit(0);
+        else{
+            Coeficientes coef = estad.regresionLineal();
+            System.out.println("Coeficiente a: " + coef.coefA());
+            System.out.println("Coeficiente b: " + coef.coefB());
+            System.out.println("Coeficiente r: " + coef.correlacion());
+            System.exit(0);
+        }
 
     }
 

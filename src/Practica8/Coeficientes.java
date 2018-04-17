@@ -13,5 +13,17 @@ public class Coeficientes {
         this.r = r;
     }
 
+    public double coefA(){
+        return a;
+    }
+
+    public double coefB(){
+        return b;
+    }
+
+    public double correlacion(){
+        return r;
+    }
+
 
 }
