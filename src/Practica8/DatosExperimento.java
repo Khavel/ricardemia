@@ -8,8 +8,8 @@ import fundamentos.*;
 
 public class DatosExperimento {
     public static void main(String[] args){
-        Estadistica estad = new Estadistica(7);
-        CajaTexto caja = new CajaTexto("Datos del experimento",7,2);
+        Estadistica estad = new Estadistica(8);
+        CajaTexto caja = new CajaTexto("Datos del experimento",8,2);
         caja.esperaYCierra();
         double num1, num2;
         boolean cabe = true;
