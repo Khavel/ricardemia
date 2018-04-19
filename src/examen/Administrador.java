@@ -7,7 +7,6 @@ package examen;
 public class Administrador extends Usuario{
 
 
-    private int nivelAcceso;
 
 
     /**
@@ -18,9 +17,8 @@ public class Administrador extends Usuario{
      * @param p Contraseña del usuario.
      * @throws Exception
      */
-    public Administrador(String n, String l, String p, int nivelAcceso) throws Exception {
+    public Administrador(String n, String l, String p) throws Exception {
         super(n, l, p);
-        this.nivelAcceso = nivelAcceso;
     }
 
     @Override

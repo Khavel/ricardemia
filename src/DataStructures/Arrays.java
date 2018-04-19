@@ -58,12 +58,12 @@ public class Arrays {
         media = media / diasMes.length;
         System.out.println(media);
 
-        //Ejercicio: Calcular el maximo, minimo y la media de un array de enteros. Para ello, crear un array y rellenarlo usando la clase Lectura del paquete fundamentos.
 
 
 
 
-        //Encontrar un alumno dado su dni
+
+
         System.out.println(buscarAlumno("123").getNombre());
 
         System.exit(0);

@@ -49,7 +49,7 @@ public class Estadistica {
         double mediaY = 0;
         double mediaXLn;
         for (int i=0;i<num;i++){
-            sumLnX += Math.log(x[i]);
+            sumLnX = sumLnX + Math.log(x[i]);
             sumLnXY += Math.log(x[i]) * y[i];
             sumLnX2 += Math.log(x[i]) * Math.log(x[i]);
             mediaY += y[i];
@@ -58,8 +58,9 @@ public class Estadistica {
         mediaXLn = sumLnX/num;
         a = (sumLnXY-(mediaY*sumLnX))/(sumLnX2-(mediaXLn*sumLnX));
         b = mediaY - (a * mediaXLn);
+        r= 0;
 
-        return new Coeficientes(a,b,0);
+        return new Coeficientes(a,b,r);
     }
 
     public double media(){
@@ -118,7 +119,7 @@ public class Estadistica {
             m.escribe("Error: no hay suficientes puntos en la regresion");
         } else {
             // Crear la grafica
-            Grafica graf = new Grafica("Recta de regresion","X","Y");
+            Grafica graf = new Grafica("Curva de regresion","X","Y");
             // Valores para la grafica de los puntos
             graf.ponColor(Grafica.azul);
             graf.ponSimbolo(true);
@@ -129,7 +130,7 @@ public class Estadistica {
             }
             graf.otraGrafica();
 
-            // Pinta la recta de regresion
+            // Pinta la curva de regresion
             double a=rl.coefA();
             double b=rl.coefB();
             graf.ponColor(Grafica.rojo);
@@ -137,7 +138,7 @@ public class Estadistica {
             graf.ponLineas(true);
             graf.ponTitulo("Logaritmica");
             for(int i=0;i<num;i++){
-                graf.inserta(x[i],rl.coefA()*Math.log(x[i])+rl.coefB());
+                graf.inserta(x[i],a*Math.log(x[i])+b);
             }
 
             graf.pinta();
@@ -166,7 +167,7 @@ public class Estadistica {
         }
         double a = ((num*sumXY)-(sumX*sumY))/((num*sumX2)-(sumX*sumX));
         double b = (sumY-(a*sumX))/num;
-        double r = ((num*sumXY)-(sumX-sumY))/(Math.sqrt(((num*sumX2)-(sumX*sumX))*(num*sumY2-(sumY*sumY))));
+        double r = ((num*sumXY)-(sumX*sumY))/(Math.sqrt(((num*sumX2)-(sumX*sumX))*(num*sumY2-(sumY*sumY))));
         return new Coeficientes(a,b,r);
     }
 
