@@ -66,7 +66,7 @@ public class SistemaGestionUsuarios {
      */
     public Menu autentificaUsuario(String login, String password) {
         Usuario u = buscaUsuario(login, password);
-        if(u.equals(null)){
+        if(u == null){
             return null;
         }else{
            return sistemaAlmacen.get(u);
@@ -89,6 +89,7 @@ public class SistemaGestionUsuarios {
             return false;
         }else{
             sistemaAlmacen.remove(u);
+            nUsuarios--;
             return true;
         }
     }

@@ -8,8 +8,8 @@ import fundamentos.*;
 
 public class DatosExperimento {
     public static void main(String[] args){
-        Estadistica estad = new Estadistica(8);
-        CajaTexto caja = new CajaTexto("Datos del experimento",8,2);
+        Estadistica estad = new Estadistica(7);
+        CajaTexto caja = new CajaTexto("Datos del experimento",7,2);
         caja.esperaYCierra();
         double num1, num2;
         boolean cabe = true;
@@ -29,11 +29,23 @@ public class DatosExperimento {
         }
         else{
             Coeficientes coef = estad.regresionLineal();
-            System.out.println("Coeficiente a: " + coef.coefA());
-            System.out.println("Coeficiente b: " + coef.coefB());
-            System.out.println("Coeficiente r: " + coef.correlacion());
+            Escritura e = new Escritura("Coeficientes");
+            e.insertaValor("Coeficiente a",coef.coefA());
+            e.insertaValor("Coeficiente b",coef.coefB());
+            e.insertaValor("Coeficiente r",coef.correlacion());
+            e.espera();
+
             estad.pintaRegresionLineal();
+
+            Coeficientes coefLog = estad.regresionLogaritmica();
+            Escritura eLog = new Escritura("Coeficientes");
+            eLog.insertaValor("Coeficiente a",coefLog.coefA());
+            eLog.insertaValor("Coeficiente b",coefLog.coefB());
+            eLog.insertaValor("Coeficiente r",coefLog.correlacion());
+            eLog.espera();
+
             estad.pintaRegresionLogaritmica();
+
             System.exit(0);
         }
 
