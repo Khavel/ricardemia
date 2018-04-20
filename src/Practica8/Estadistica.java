@@ -17,6 +17,12 @@ public class Estadistica {
         y = new double[maxDatos];
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public boolean inserta(double x, double y){
         if(num == this.x.length){
             return false;
@@ -32,15 +38,10 @@ public class Estadistica {
         return num;
     }
 
-    private double funcion(){
-        double yAux=0;
-        double xAux = 1/(x[num-1]-this.x[0]);
-        for(int i=0;i<num-1;i++){
-            yAux += ((y[i+1] + y[i])/2)*(x[i+1]-x[i]);
-        }
-        return xAux*yAux;
-    }
-
+    /**
+     *
+     * @return
+     */
     public Coeficientes regresionLogaritmica(){
         double a, b, r;
         double sumLnX=0;
@@ -48,25 +49,41 @@ public class Estadistica {
         double sumLnX2 = 0;
         double mediaY = 0;
         double mediaXLn;
+        double sumY = 0;
+        double sumY2 = 0;
         for (int i=0;i<num;i++){
             sumLnX = sumLnX + Math.log(x[i]);
             sumLnXY += Math.log(x[i]) * y[i];
             sumLnX2 += Math.log(x[i]) * Math.log(x[i]);
-            mediaY += y[i];
+            sumY += y[i];
+            sumY2 = sumY2 + (y[i] * y[i]);
+
         }
-        mediaY = mediaY/num;
+        mediaY = sumY/num;
         mediaXLn = sumLnX/num;
         a = (sumLnXY-(mediaY*sumLnX))/(sumLnX2-(mediaXLn*sumLnX));
         b = mediaY - (a * mediaXLn);
-        r= 0;
+        r= (num*sumLnXY - sumLnX*sumY)/(Math.sqrt((num*sumLnX2 - sumLnX*sumLnX)*(num*sumY2-(sumY*sumY))));
 
         return new Coeficientes(a,b,r);
     }
 
+    /**
+     *
+     * @return
+     */
     public double media(){
-        return funcion()/num;
+        double yAux=0;
+        double xAux = 1/(x[num-1]-this.x[0]);
+        for(int i=0;i<num-1;i++){
+            yAux += ((y[i+1] + y[i])/2)*(x[i+1]-x[i]);
+        }
+        return (xAux*yAux)/num;
     }
 
+    /**
+     *
+     */
     public void pintaRegresionLineal(){
         Coeficientes rl=regresionLineal();
         if (rl==null) {
