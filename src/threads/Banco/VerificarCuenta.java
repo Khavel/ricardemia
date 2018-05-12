@@ -4,6 +4,7 @@ public class VerificarCuenta implements Runnable{
 
     private  CuentaBanco cb = new CuentaBanco();
 
+    /**
     private void HacerRetiro(int cantidad) throws InterruptedException{
 
         if(cb.getBalance() >= cantidad){
@@ -22,7 +23,7 @@ public class VerificarCuenta implements Runnable{
         }
 
     }
-/*
+*/
 
     private synchronized void HacerRetiro(int cantidad) throws InterruptedException{
 
@@ -41,7 +42,7 @@ public class VerificarCuenta implements Runnable{
 
     }
 
-    */
+
     @Override
     public void run() {
         for (int i = 0; i <= 3; i++) {

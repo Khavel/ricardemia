@@ -5,17 +5,20 @@
 package threads;
 
 class Hilo extends Thread {
-    public Hilo (String str) {
+
+    public Hilo(String str){
         super(str);
     }
-    public void run() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(i + " " + getName());
-            try {
-                sleep((long)(Math.random() * 1000));
-            }
-            catch (InterruptedException e) {}
+
+    public void run(){
+        System.out.println("Hola mundo 1");
+        System.out.println(getName());
+        try{
+            sleep(5000);
+        }catch(InterruptedException e){
+            System.out.println("Ha habido un error");
         }
-        System.out.println("FIN! " + getName());
+        System.out.println("Hola mundo 2");
+        System.out.println(getName());
     }
 }

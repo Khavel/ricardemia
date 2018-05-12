@@ -1,0 +1,2 @@
+Entero: 20 Real: 22.4
+String: holamundo

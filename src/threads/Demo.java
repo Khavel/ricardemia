@@ -6,17 +6,12 @@ package threads;
 
 public class Demo {
     public static void main (String[] args) {
-        Hilo uno, dos;
-        uno = new Hilo("Jamaica");
-        dos = new Hilo("Fiji");
+        Hilo h1,h2;
+        h1 = new Hilo("Jamaica");
+        h2 = new Hilo("Fiji");
 
-        uno.setPriority(10);
-        dos.setPriority(1);
-        System.out.println(uno.isAlive());
-        uno.start();
-        dos.start();
-        
-        System.out.println("main no hace nada");
+        h1.start();
+        h2.start();
 
     }
 }
